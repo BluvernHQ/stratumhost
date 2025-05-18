@@ -1,0 +1,17 @@
+{
+  "name": "stratumhost",
+  "version": "1.0.0",
+  "description": "StratumHost website",
+  "main": "index.html",
+  "scripts": {
+    "start": "http-server -p 8000",
+    "dev": "live-server --port=8000"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "live-server": "^1.2.2"
+  }
+} 

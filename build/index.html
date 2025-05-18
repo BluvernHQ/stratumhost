@@ -320,15 +320,6 @@
             opacity: 0.05;
         }
         
-        .single-testimonial {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 30px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        }
-        
         /* Enhanced Testimonial Styles */
         .testimonial-card {
             background: rgba(255, 255, 255, 0.05);
@@ -341,6 +332,8 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
         
         .testimonial-card:hover {
@@ -369,6 +362,7 @@
         .testimonial-content {
             margin-bottom: 20px;
             position: relative;
+            flex: 1;
         }
         
         .quote-icon {
@@ -388,33 +382,53 @@
         .testimonial-user {
             display: flex;
             align-items: center;
-            margin-top: 20px;
+            margin-top: auto;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .user-avatar {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             overflow: hidden;
             margin-right: 15px;
-            border: 2px solid var(--secondary-color);
+            border: 3px solid var(--secondary-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
         
         .user-avatar img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .testimonial-card:hover .user-avatar img {
+            transform: scale(1.1);
+        }
+        
+        .user-info {
+            padding-left: 10px;
         }
         
         .user-info h5 {
             color: #fff;
             font-size: 18px;
             margin-bottom: 5px;
+            font-weight: 600;
         }
         
         .user-info span {
             color: rgba(255, 255, 255, 0.7);
             font-size: 14px;
+            display: block;
+        }
+        
+        @media (max-width: 767px) {
+            .testimonial-card {
+                margin-bottom: 30px;
+            }
         }
         
         /* Modal Styles */
@@ -541,6 +555,31 @@
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
         
+        .waitlist-users {
+            margin-top: 30px;
+        }
+        
+        .user-avatars {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        
+        .user-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 3px solid var(--dark-color);
+            object-fit: cover;
+            margin-right: -15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .user-avatar:hover {
+            transform: translateY(-5px);
+            z-index: 10;
+        }
+        
         .waitlist-form {
             flex: 1;
             display: flex;
@@ -603,6 +642,150 @@
                 height: 35px;
             }
         }
+        
+        /* Waitlist members styling */
+        .waitlist-members-section {
+            padding-top: 70px;
+            padding-bottom: 70px;
+        }
+        
+        .waitlist-images-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        
+        .waitlist-member-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 4px solid var(--dark-color);
+            object-fit: cover;
+            margin-right: -20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .waitlist-member-img:hover {
+            transform: translateY(-10px);
+            z-index: 10;
+        }
+        
+        /* Contact section styling */
+        .contact-section {
+            padding-top: 70px;
+            padding-bottom: 70px;
+            background: linear-gradient(135deg, var(--dark-color) 0%, #1F2937 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('assets/img/hero/hero-pattern.svg');
+            opacity: 0.05;
+            pointer-events: none;
+        }
+        
+        .contact-title {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+        
+        .contact-form {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-form:hover {
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            border-color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+            border-radius: 10px;
+            padding: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 2px rgba(78, 205, 196, 0.2);
+            outline: none;
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .contact-info-box {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-info-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            border-color: var(--secondary-color);
+        }
+        
+        .contact-info-box i {
+            font-size: 36px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .contact-info-box h3 {
+            color: #fff;
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+        
+        .contact-info-box p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 5px;
+        }
+        
+        @media (max-width: 767px) {
+            .contact-form {
+                padding: 25px;
+                margin-bottom: 30px;
+            }
+            
+            .contact-info-box {
+                padding: 20px;
+            }
+        }
+        
+        /* End of new styles */
     </style>
 </head>
 <body>
@@ -640,10 +823,6 @@
                                     <div class="main-menu d-none d-lg-block">
                                         <nav>
                                             <ul id="navigation">                                                                                          
-                                                <li><a href="index.html">Home</a></li>
-                                                <li><a href="about.html">About</a></li>
-                                                <li><a href="services.html">Features</a></li>
-                                                <li><a href="contact.html">Contact</a></li>
                                                 <!-- Button -->
                                                 <li class="button-header"><a href="#" class="btn open-waitlist-modal">Join Waitlist</a></li>
                                             </ul>
@@ -1434,73 +1613,73 @@
             </div>
                 
                 <!-- Testimonial Cards -->
-            <div class="row">
+            <div class="row gy-4">
                     <!-- Testimonial Card 1 -->
-                    <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="col-lg-4 col-md-6">
                         <div class="testimonial-card">
                             <div class="testimonial-content">
                                 <div class="quote-icon">
                                     <i class="fas fa-quote-left"></i>
-                        </div>
+                                </div>
                                 <p>"StratumHost is not just another cloud tool. It helped me understand what's going on inside a server for the first time. The visual approach makes complex concepts accessible."</p>
-                    </div>
+                            </div>
                             <div class="testimonial-user">
                                 <div class="user-avatar">
-                                    <img src="assets/img/gallery/testimonial.png" alt="Rahul M">
-                </div>
+                                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=200&q=80" alt="Rahul M">
+                                </div>
                                 <div class="user-info">
                                     <h5>Rahul M.</h5>
                                     <span>CS Student, IIT Hyderabad</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                        </div>
                     
                     <!-- Testimonial Card 2 -->
-                    <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="col-lg-4 col-md-6">
                         <div class="testimonial-card">
                             <div class="testimonial-content">
                                 <div class="quote-icon">
                                     <i class="fas fa-quote-left"></i>
-                    </div>
+                                </div>
                                 <p>"It's like having a DevOps lab in your browser. I use StratumHost to demonstrate cloud concepts to my students, and the visual feedback helps them grasp ideas much faster."</p>
-                </div>
+                            </div>
                             <div class="testimonial-user">
                                 <div class="user-avatar">
-                                    <img src="assets/img/gallery/testimonial.png" alt="Meena T">
-                        </div>
+                                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=200&q=80" alt="Meena T">
+                                </div>
                                 <div class="user-info">
                                     <h5>Meena T.</h5>
                                     <span>Educator, Open Source Academy</span>
-                    </div>
-                </div>
-            </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     
                     <!-- Testimonial Card 3 -->
-                    <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="col-lg-4 col-md-6">
                         <div class="testimonial-card">
                             <div class="testimonial-content">
                                 <div class="quote-icon">
                                     <i class="fas fa-quote-left"></i>
-                </div>
+                                </div>
                                 <p>"The transparency of StratumHost has been invaluable for our coding bootcamp students. They can see exactly how their applications interact with cloud infrastructure."</p>
-            </div>
+                            </div>
                             <div class="testimonial-user">
                                 <div class="user-avatar">
-                                    <img src="assets/img/gallery/testimonial.png" alt="Alex K">
-        </div>
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=200&q=80" alt="Alex K">
+                                </div>
                                 <div class="user-info">
                                     <h5>Alex K.</h5>
                                     <span>Tech Lead, Future Coders Initiative</span>
                                 </div>
-                                    </div>
-                                    </div>
-                                </div>
-                            </div>
                             </div>
                         </div>
-                        <!-- Testimonial End -->
+                    </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial End -->
 
         <!-- Future Roadmap -->
         <section class="about-area1 section-padding40 section-bg1">
@@ -1671,6 +1850,71 @@
         </section>
         <!-- Future Roadmap End -->
     </main>
+    
+    <!-- Contact Section -->
+    <section class="contact-section section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="contact-title text-center text-white mb-50">Get in Touch</h2>
+                </div>
+                <div class="col-lg-8">
+                    <div class="contact-form">
+                        <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'" placeholder="Enter Message"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <input class="form-control" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" placeholder="Enter your name">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <input class="form-control" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" placeholder="Enter email address">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <input class="form-control" name="subject" id="subject" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'" placeholder="Enter Subject">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group mt-3">
+                                <button type="submit" class="btn">
+                                    <i class="fas fa-paper-plane"></i> Send Message
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="contact-info-box text-center">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email Us</h3>
+                        <p>contact@stratumhost.com</p>
+                        <p>support@stratumhost.com</p>
+                    </div>
+                    <div class="contact-info-box text-center">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Visit Us</h3>
+                        <p>Tech Hub, Innovation Street</p>
+                        <p>Bangalore, India 560001</p>
+                    </div>
+                    <div class="contact-info-box text-center">
+                        <i class="fas fa-comments"></i>
+                        <h3>Community</h3>
+                        <p>Join our Discord community</p>
+                        <p>Follow us on Twitter</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer>
         <!-- Footer Start-->
         <div class="footer-area section-bg1">
@@ -1807,10 +2051,10 @@
                             
                             <div class="waitlist-users">
                                 <div class="user-avatars">
-                                    <div class="user-avatar"><img src="assets/img/gallery/user1.jpg" alt="User"></div>
-                                    <div class="user-avatar"><img src="assets/img/gallery/user2.jpg" alt="User"></div>
-                                    <div class="user-avatar"><img src="assets/img/gallery/user3.jpg" alt="User"></div>
-                                    <div class="user-avatar user-avatar-more">+</div>
+                                    <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&h=100&q=80" alt="Waitlist Member" class="user-avatar">
+                                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&h=100&q=80" alt="Waitlist Member" class="user-avatar">
+                                    <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&h=100&q=80" alt="Waitlist Member" class="user-avatar">
+                                    <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&h=100&q=80" alt="Waitlist Member" class="user-avatar">
                                 </div>
                                 <p><strong>250+</strong> people have already joined the waitlist</p>
                             </div>
